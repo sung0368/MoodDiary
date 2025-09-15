@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F3F1"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="설정"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#0F0F0F"
+            android:paddingBottom="16dp" />
+
+        <!-- 프로필 및 백업 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="프로필 및 백업"
+            android:textStyle="bold"
+            android:paddingTop="8dp"
+            android:textColor="#949494"
+            android:paddingBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:background="@drawable/popup_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Google Drive와 동기화"
+                    android:textColor="#0F0F0F"/>
+
+                <Switch
+                    android:id="@+id/switchDriveSync"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="1dp"
+                android:background="#B3B3B3" />
+
+            <TextView
+                android:id="@+id/textSyncStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="동기화 안됨"
+                android:textSize="12sp"
+                android:textColor="#0F0F0F"
+                android:paddingTop="4dp" />
+        </LinearLayout>
+
+        <!-- 추가된 계정 표시 텍스트뷰 -->
+        <TextView
+            android:id="@+id/textGoogleAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#388E3C"
+            android:textSize="12sp"
+            android:paddingLeft="8dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textLastSync"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#777777"
+            android:textSize="12sp"
+            android:paddingLeft="8dp"
+            android:paddingTop="2dp"
+            android:visibility="gone" />
+
+        <!-- 알림 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="알림"
+            android:textColor="#949494"
+            android:textStyle="bold"
+            android:paddingTop="8dp"
+            android:paddingBottom="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="12dp"
+            android:background="@drawable/popup_background">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="알림"
+                android:textColor="#0F0F0F"/>
+
+            <Switch
+                android:id="@+id/switchNotification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- 개인정보 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="개인정보"
+            android:textColor="#949494"
+            android:textStyle="bold"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/popup_background">
+
+            <TextView
+                android:id="@+id/tvPermission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="이 앱이 사용하는 권한"
+                android:textColor="#0F0F0F"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ccc" />
+
+            <TextView
+                android:id="@+id/tvAppInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:text="앱 정보"
+                android:textColor="#0F0F0F"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

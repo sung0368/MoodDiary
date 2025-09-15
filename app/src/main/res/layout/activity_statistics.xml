@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FEFEFE"
+    android:fitsSystemWindows="true"
+    android:padding="16dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:orientation="vertical" >
+
+        <!-- 상단 제목 + 버튼 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="감정 통계"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingLeft="15dp"
+                android:textColor="#0F0F0F"
+                android:layout_weight="1"/>
+
+            <ImageButton
+                android:id="@+id/btnDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_toggle_day_selected"
+                android:contentDescription="일 버튼" />
+
+            <ImageButton
+                android:id="@+id/btnWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_toggle_week_selected"
+                android:visibility="gone"
+                android:contentDescription="주 버튼" />
+
+            <!-- 캘린더 버튼 -->
+            <ImageButton
+                android:id="@+id/btn_calendar"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/ic_calendar3"
+                android:background="@android:color/transparent"
+                android:contentDescription="캘린더" />
+
+            <!-- 닫기 버튼 -->
+            <ImageButton
+                android:id="@+id/btn_close"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/ic_close2"
+                android:background="@android:color/transparent"
+                android:contentDescription="닫기" />
+        </LinearLayout>
+
+        <!-- 날짜 -->
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4월 5일 토요일"
+            android:paddingLeft="20dp"
+            android:textSize="16sp"
+            android:textColor="#0F0F0F"
+            android:layout_marginBottom="4dp"/>
+
+        <!-- "일별 통계" 타이틀 -->
+        <TextView
+            android:id="@+id/text_day_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="일별 통계"
+            android:paddingLeft="20dp"
+            android:textSize="14sp"
+            android:textColor="#949494"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- 차트 카드 -->
+        <androidx.cardview.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@android:color/white">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <ImageButton
+                        android:id="@+id/btn_info"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="top|end"
+                        android:layout_margin="8dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_info"
+                        android:contentDescription="도움말" />
+
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/pieChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp" />
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/barChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:visibility="gone" />
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:columnCount="3"
+                        android:alignmentMode="alignMargins"
+                        android:useDefaultMargins="true"
+                        android:padding="8dp">
+
+                        <!-- 분노 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="27dp"
+                                android:layout_height="27dp"
+                                android:src="@drawable/ic_emotion_angry"
+                                android:contentDescription="분노" />
+                            <TextView
+                                android:id="@+id/text_angry"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="28%"
+                                android:textColor="#5F5F61"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="8dp"
+                                android:maxLines="1" />
+                        </LinearLayout>
+
+                        <!-- 기쁨 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="27dp"
+                                android:layout_height="27dp"
+                                android:src="@drawable/ic_emotion_happy"
+                                android:contentDescription="기쁨" />
+                            <TextView
+                                android:id="@+id/text_happy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="22%"
+                                android:textColor="#5F5F61"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="8dp"
+                                android:maxLines="1" />
+                        </LinearLayout>
+
+                        <!-- 당황 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="27dp"
+                                android:layout_height="27dp"
+                                android:src="@drawable/ic_emotion_confused"
+                                android:contentDescription="당황" />
+                            <TextView
+                                android:id="@+id/text_confused"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="90%"
+                                android:textColor="#5F5F61"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="8dp"
+                                android:maxLines="1" />
+                        </LinearLayout>
+
+                        <!-- 슬픔 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="27dp"
+                                android:layout_height="27dp"
+                                android:src="@drawable/ic_emotion_sad"
+                                android:contentDescription="슬픔" />
+                            <TextView
+                                android:id="@+id/text_sad"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="5%"
+                                android:textColor="#5F5F61"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="8dp"
+                                android:maxLines="1" />
+                        </LinearLayout>
+
+                        <!-- 불안 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="27dp"
+                                android:layout_height="27dp"
+                                android:src="@drawable/ic_emotion_anxious"
+                                android:contentDescription="불안" />
+                            <TextView
+                                android:id="@+id/text_anxious"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="24%"
+                                android:textColor="#5F5F61"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="8dp"
+                                android:maxLines="1" />
+                        </LinearLayout>
+
+                        <!-- 상처 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="27dp"
+                                android:layout_height="27dp"
+                                android:src="@drawable/ic_emotion_hurt"
+                                android:contentDescription="상처" />
+                            <TextView
+                                android:id="@+id/text_hurt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12%"
+                                android:textColor="#5F5F61"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="8dp"
+                                android:maxLines="1" />
+                        </LinearLayout>
+
+                    </GridLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/infoBubble"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|top"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/bg_info_bubble"
+                    android:visibility="gone"
+                    android:contentDescription="감정 설명 말풍선" />
+
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 피드백 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="피드백"
+            android:paddingLeft="20dp"
+            android:textSize="14sp"
+            android:textColor="#949494"
+            android:layout_marginTop="15dp" />
+
+        <TextView
+            android:id="@+id/text_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_card2"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:padding="15dp"
+            android:text="오늘은 기쁜일이 많은 날이네요!\n기쁜 받은 작은 일에도 감사하며, 그 순간을 온전히 즐기는 게 중요해요."
+            android:textSize="14sp"
+            android:textColor="#0F0F0F"/>
+
+    </LinearLayout>
+</ScrollView>

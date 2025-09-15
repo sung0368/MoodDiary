@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="false"
+    android:background="#FFFFFF">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <!-- 상단 날짜 텍스트 -->
+        <TextView
+            android:id="@+id/dateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="15dp"
+            android:text="4월 5일 토요일"
+            android:textSize="18sp"
+            android:textColor="#0F0F0F"
+            android:textStyle="bold" />
+
+        <!-- 완료 버튼 -->
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="완료"
+            android:textSize="16sp"
+            android:textColor="#FF4FA477"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="3dp"
+            android:background="@android:color/transparent" />
+
+        <!-- 캘린더 아이콘 버튼 (오른쪽 위) -->
+        <ImageButton
+            android:id="@+id/btnCalendar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignTop="@id/btnDone"
+            android:layout_toStartOf="@id/btnDone"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_calendar2"
+            android:contentDescription="캘린더 열기" />
+
+        <!-- 구분선 -->
+        <View
+            android:id="@+id/dividerLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/dateText"
+            android:layout_marginTop="10dp"
+            android:layout_margin="10dp"
+            android:background="#DDDDDD" />
+
+
+        <!-- ScrollView는 dividerLine 아래부터 시작 -->
+        <ScrollView
+            android:id="@+id/scrollArea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/dividerLine"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <!-- 이미지 + X 버튼 -->
+                <FrameLayout
+                    android:id="@+id/imageContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/selectedImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:background="#F0F0F0" />
+
+                    <ImageButton
+                        android:id="@+id/btnRemoveImage"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="top|end"
+                        android:layout_margin="8dp"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/ic_close" />
+                </FrameLayout>
+
+                <!-- EditText -->
+                <EditText
+                    android:id="@+id/voiceGuide"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="말씀하신 음성을 변환해드릴게요"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:background="@android:color/transparent"
+                    android:textColor="#5F5F61"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- 중앙 메뉴 영역 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- 반원형 메뉴 -->
+            <RelativeLayout
+                android:id="@+id/menuContainer"
+                android:layout_width="180dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/bg_half_circle"
+                android:visibility="gone">
+
+                <ImageButton
+                    android:id="@+id/btnPen"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="펜"
+                    android:src="@drawable/ic_pen" />
+
+                <ImageButton
+                    android:id="@+id/btnMic"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginBottom="80dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="마이크"
+                    android:src="@drawable/ic_microphone" />
+
+                <ImageButton
+                    android:id="@+id/btnPhoto"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="35dp"
+                    android:layout_marginBottom="80dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="사진"
+                    android:src="@drawable/ic_photo" />
+
+                <ImageButton
+                    android:id="@+id/btnPalette"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="팔레트"
+                    android:src="@drawable/ic_palette" />
+            </RelativeLayout>
+
+            <!-- 초록색 중앙 버튼 -->
+            <ImageButton
+                android:id="@+id/btnToggleMenu"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/bg_circle_green"
+                android:contentDescription="작성 메뉴 열기" />
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <!-- 음성 입력 BottomSheet 스타일 View -->
+    <LinearLayout
+        android:id="@+id/voiceBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingBottom="24dp"
+        android:background="#F8F8F8"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/handle_background" />
+
+        <!-- 음성 인식 시 초록색 뷰 ic_wave_green.xml에 넣어놓음 -->
+        <ImageView
+            android:id="@+id/voiceWaveGray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_wave_gray"
+            android:layout_gravity="center"
+            android:contentDescription="음성 파형" />
+
+
+        <ImageButton
+            android:id="@+id/btnVoiceRecord"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_circle_green"
+            android:src="@drawable/ic_recordmic"
+            android:contentDescription="음성녹음 버튼" />
+
+        <TextView
+            android:id="@+id/recordGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="눌러서 말하세요"
+            android:textColor="#5F5F61"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

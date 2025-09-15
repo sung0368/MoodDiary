@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F3F1">
+
+    <!-- 프로필 버튼 -->
+    <ImageButton
+        android:id="@+id/btnProfile"
+        android:layout_width="46dp"
+        android:layout_height="55dp"
+        android:scaleType="fitCenter"
+        android:contentDescription="프로필"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_logo2"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp" />
+    <!-- 검색 버튼 -->
+    <ImageButton
+        android:id="@+id/btnSearch"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="4dp"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_search"
+        android:contentDescription="검색"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnMore"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="8dp" />
+
+    <!-- 더보기 버튼 -->
+    <ImageButton
+        android:id="@+id/btnMore"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="4dp"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_more"
+        android:contentDescription="더보기 설정"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- 요약 정보: 데이터 있을 때 보임 -->
+    <LinearLayout
+        android:id="@+id/summaryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/btnProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="visible">
+
+        <!-- 올해 입력 항목 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="start"
+            android:layout_marginEnd="12dp">
+
+            <!-- 상단: 아이콘 + 텍스트 (수평) -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_list"
+                    android:contentDescription="항목 수" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="올해 입력 항목"
+                    android:textSize="12sp"
+                    android:textColor="#444444"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+            <!-- 하단: 개수 -->
+            <TextView
+                android:id="@+id/tvTotalEntries"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6개"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#0F0F0F"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+
+
+        <!-- 일기 쓴 일수 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="start"
+            android:layout_marginEnd="12dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_small_calendar"
+                    android:contentDescription="일기 쓴 일수" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="일기 쓴 일수"
+                    android:textSize="12sp"
+                    android:textColor="#444444"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvDaysWritten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4일"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#0F0F0F"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- 어제 감정 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="start">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_heart"
+                    android:contentDescription="어제의 감정" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="어제의 감정"
+                    android:textSize="12sp"
+                    android:textColor="#444444"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvYesterdayEmotion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="😊"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#0F0F0F"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ***** 새로 추가된 날짜 카드 레이아웃 ***** -->
+    <LinearLayout
+        android:id="@+id/dateCardLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/summaryLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- 1번째 카드 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card1"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="4dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="12dp"
+            app:cardUseCompatPadding="true"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- 날짜 (항상 위 고정) -->
+                <TextView
+                    android:id="@+id/tvCardDate1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="21"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#C4C4C4"
+                    android:gravity="center_horizontal"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp" />
+
+                <!-- 감정 이모지 (아래 위치) -->
+                <ImageView
+                    android:id="@+id/imgCardEmotion1"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_below="@id/tvCardDate1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_emotion_happy"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- 2번째 카드 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card2"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="4dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="12dp"
+            app:cardUseCompatPadding="true"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- 날짜 (항상 위 고정) -->
+                <TextView
+                    android:id="@+id/tvCardDate2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="22"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#C4C4C4"
+                    android:gravity="center_horizontal"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp" />
+
+                <!-- 감정 이모지 (아래 위치) -->
+                <ImageView
+                    android:id="@+id/imgCardEmotion2"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_below="@id/tvCardDate2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_emotion_happy"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 3번째 카드 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card3"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="4dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="12dp"
+            app:cardUseCompatPadding="true"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- 날짜 (항상 위 고정) -->
+                <TextView
+                    android:id="@+id/tvCardDate3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="23"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#C4C4C4"
+                    android:gravity="center_horizontal"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp" />
+
+                <!-- 감정 이모지 (아래 위치) -->
+                <ImageView
+                    android:id="@+id/imgCardEmotion3"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_below="@id/tvCardDate3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_emotion_happy"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 4번째 카드 -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card4"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="4dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="12dp"
+            app:cardUseCompatPadding="true"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- 날짜 (항상 위 고정) -->
+                <TextView
+                    android:id="@+id/tvCardDate4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="24"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#C4C4C4"
+                    android:gravity="center_horizontal"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp" />
+
+                <!-- 감정 이모지 (아래 위치) -->
+                <ImageView
+                    android:id="@+id/imgCardEmotion4"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_below="@id/tvCardDate4"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_emotion_happy"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 5번째(맨 오른쪽) 카드 - 항상 ‘오늘’ -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card5"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="12dp"
+            app:cardUseCompatPadding="true"
+            android:layout_weight="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- 날짜 (항상 위 고정) -->
+                <TextView
+                    android:id="@+id/tvCardDate5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="25"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#6F847B"
+                    android:gravity="center_horizontal"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp" />
+
+                <!-- 감정 이모지 (아래 위치) -->
+                <ImageView
+                    android:id="@+id/imgCardEmotion5"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_below="@id/tvCardDate5"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_emotion_happy"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+    <!-- 감정 아이콘: 데이터 없을 때만 보임 -->
+    <ImageView
+        android:id="@+id/imgEmotions"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_emotion_group"
+        android:contentDescription="감정 아이콘 배경"
+        app:layout_constraintTop_toBottomOf="@+id/summaryLayout"
+        app:layout_constraintBottom_toTopOf="@+id/titleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="80dp" />
+
+    <!-- 타이틀: 데이터 없을 때만 보임 -->
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일기 쓰기 시작하기"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:textColor="#0F0F0F"
+        app:layout_constraintTop_toBottomOf="@+id/imgEmotions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 설명: 데이터 없을 때만 보임 -->
+    <TextView
+        android:id="@+id/descText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="나만의 일기를 작성해 보세요.\n시작하려면 더하기 버튼을 누르세요."
+        android:textSize="10sp"
+        android:textColor="#5F5F61"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/titleText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 일기 저장 recycling view !-->
+    <!-- recyclerDiary <androidx.recyclerview.widget.RecyclerView>: No speakable text present 오류가 뜨는건 수정,삭제 이런걸 안만들어서 그런거라는데 !-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerDiary"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="100dp"
+        app:layout_constraintTop_toBottomOf="@id/dateCardLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnAddCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="100dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="false"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnAdd"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_add"
+            android:contentDescription="일기 추가"
+            android:clickable="true"
+            android:focusable="true" />
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

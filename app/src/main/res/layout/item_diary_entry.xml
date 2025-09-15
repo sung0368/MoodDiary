@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- 카드 본문 -->
+    <RelativeLayout
+        android:id="@+id/frontLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_toStartOf="@id/btnDelete"
+        android:background="@drawable/bg_diary_card"
+        android:paddingTop="5dp"
+        android:paddingBottom="0dp"
+        android:elevation="2dp">
+
+        <!-- 해시태그 텍스트 -->
+        <TextView
+            android:id="@+id/tvDiaryMainText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="#데이트 #야구"
+            android:textSize="14sp"
+            android:textColor="#0F0F0F"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <!-- 회색 구분선 -->
+        <View
+            android:id="@+id/separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tvDiaryMainText"
+            android:layout_marginTop="8dp"
+            android:background="#DDDDDD" />
+
+        <!-- 날짜와 감정 상태를 가로 정렬 -->
+        <LinearLayout
+            android:id="@+id/layoutDateStatusRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/separator"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- 날짜 텍스트 -->
+            <TextView
+                android:id="@+id/tvDiaryDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="5월 10일 토요일"
+                android:textSize="12sp"
+                android:textColor="#7F7F7F" />
+
+            <!-- 감정 상태 아이콘 -->
+            <ImageView
+                android:id="@+id/imgStatusCombined"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_status_in_progress"
+                android:contentDescription="감정 상태"
+                android:layout_marginEnd="8dp" />
+
+            <!-- 더보기 버튼 -->
+            <ImageButton
+                android:id="@+id/btnMore"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="?android:selectableItemBackgroundBorderless"
+                android:src="@drawable/dots_horizontal"
+                android:contentDescription="더보기 버튼" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <!-- 삭제 버튼 (오른쪽 끝에 숨김) -->
+    <ImageButton
+        android:id="@+id/btnDelete"
+        android:layout_width="64dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:background="#FFE5E5"
+        android:padding="12dp"
+        android:src="@drawable/trash_f"
+        android:scaleType="center"
+        android:visibility="gone"
+        android:contentDescription="Delete" />
+</RelativeLayout>

@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "832598252992",
+    "project_id": "my-www-proj",
+    "storage_bucket": "my-www-proj.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832598252992:android:2b4af7744e185eb511bc25",
+        "android_client_info": {
+          "package_name": "com.cookandroid.moodiaryfinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832598252992-mrmtpn9q58hfag84u09phbhcri2qagmk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cookandroid.moodiaryfinal",
+            "certificate_hash": "1da9a53551ff95158d89dba186e105d863ced210"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyIU43hDD2jUt2OLY7qz09ArOlLmr0z3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
