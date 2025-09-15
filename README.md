@@ -345,3 +345,18 @@ UI 동작을 동적으로 연결하고, 사용자 경험을 매끄럽게 만들�
 
 AI 테스트와 LLM 모듈 연동 과정에서 모델 로딩, 추론 속도, 메모리 이슈 등 온디바이스 환경 특유의 문제들을 직접 다뤄본 것이 큰 자산이 되었습니다. 초기에는 생소했던 JNI와 TFLite 모델 구조를 점차 익혀가며 실제 서비스에 적합한 형태로 연결하는 경험을 쌓을 수 있었습니다. 프로젝트를 통해 기술을 제품에 녹여내는 전체 흐름을 실무처럼 경험할 수 있어 매우 의미 있었습니다.
 
+
+---
+
+## 8. 실행 영상
+
+프로젝트의 실제 동작 모습을 영상으로 확인할 수 있습니다.  
+👉 [실행 영상 보러가기](https://youtube.com/shorts/bHdj8PbgjX8?si=S0OA9tEGM6Pq_C5R)
+
+<details>
+<summary>미리보기</summary>
+  
+[![실행 영상](https://img.youtube.com/vi/bHdj8PbgjX8/0.jpg)](https://youtube.com/shorts/bHdj8PbgjX8?si=S0OA9tEGM6Pq_C5R)
+
+</details>
+
